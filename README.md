@@ -1,2 +1,3 @@
-# 2CAW
-Primeiro repositório GitHub
+# 2CAW;
+Primeiro repositório GitHub...
+Vamos aprender!!!
