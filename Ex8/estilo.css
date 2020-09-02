@@ -1,0 +1,12 @@
+h1{ /* formataçao de todos (h1) */
+			font-size: 30px;
+			font-size: arial;
+			text-align: center;
+			text-shadow: 3px 3px 3px orange/* colocar sombra laranja no titulo(h2) */
+		}
+
+p{ /*formatação para todos paragrafos p */	
+		font-size: 25px;
+			font-size: arial;
+			color: green;
+		}
