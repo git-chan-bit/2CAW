@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+    <head> 
+        <meta charset="utf-8">
+
+        <title> Exercício 5: apresentar os caracteres de uma string e suas posições. </title> 
+ 
+        <script> 
+            var frase="Ola, tudo bem?"; 
+            document.write(frase+"<br>"); 
+            tamanho=frase.length; 
+            for (var i=0; i< tamanho;){ 
+                document.write("<br>Caractere na posição "+i+" : "+frase.charAt(i)); i++;
+                } 
+         
+            document.write("<br><br>Primeiro caractere: " + frase.charAt(0) + "<br />"); 
+            document.write("Último caractere: " + frase.charAt(frase.length-1)); 
+         
+        /* O método charAt() retorna o caractere da posição especificada da string (do índice especificado). O método charAt() 
+        recebe como parâmetro um valor inteiro que deve estar entre 0 e length()-1. Se o valor do parâmetro não atender a estes 
+        limites haverá um erro em tempo de execução. O método devolve o (valor do parâmetro+1)-ésimo caractere da cadeia de 
+        caracteres. Se o argumento de charAt() for menor que 0 ou maior ou igual ao comprimento da cadeia ocorre um erro de 
+        execução: IndexOutOfBoundsException.  */ 
+         
+        </script>
+    </head> 
+    <body>
+    </body>
+
+</html>
