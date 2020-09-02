@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<title>Ex2-calculadora basica-2CAW</title>
+</head>
+
+<body>
+	<form method="post" action="ex2_1920478300059.php" >
+	<!-- input é usado para criar controles interativos para formulários quem recebe dados do usuário. A semântica de um input varia consideravelmente dependendo do valor de seu atributo type -->
+	Num1:&nbsp <input name="val1" type="number" /><br>
+	Num2:&nbsp <input name="val2" type="number" /> <br><br>
+	<!--Criar abaixo, um menu com as opções de operações para o usuário escolher. A variável $sinal recebe o tipo de operação-->
+	Escolha a operação: 
+	<select name="operacao">
+		<option value="soma">Soma</option>
+		<option value="subtracao">Subtração</option>
+		<option value="multiplicacao">Multiplicação</option>
+		<option value="divisao">Divisão</option>
+	</select>
+	<input type="reset" name="Apagar" value="Apagar"> <!-- reset: botão para limpar os dados do formulário-->
+	<input type="submit" name="Enviar" value="Calcule"><!--submit: envia os dados do formulário para pagina receba2.php-->
+	</form>
+
+</body>
+</html>
