@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html> 
+    <head>
+        <meta charset="utf-8">   
+        <title>Inscrição</title>
+<!-- 1) A primeira alteração, para cumprir o requisito (a), consiste na programação dos eventos ONCLICK dos dois primeiros 
+botões. É preciso coletar uma linha de texto do usuário e armazená-la em uma variável global. Para declarar uma variável 
+globalmente accessível em JavaScript, usamos a palavra-chave var antes do nome escolhido. As declarações devem estar em 
+um bloco <SCRIPT> que seja interpretado antes que um botão seja interpretado, então as colocamos no <head>: -->     
+        <script>      
+            var nome      
+            var email 
+/*3) O segundo requisito requer instruções para o atributo ONCLICK do terceiro botão. Mas é necessário realizar diversas 
+operações: • incrementar um número (outra variável global); • construir uma linha de texto (string) com os dados lidos;
+• imprimir os dados em um campo de textos O ideal, neste caso, é criar uma função que realize as operações acima e 
+chamar esta função a partir do atributo ONCLICK do terceiro botão. Acrescentamos a função no bloco <SCRIPT> do início da 
+página e construímos o string concatenando as variáveis:
+   var nome;
+   var email;
+   var num = 0;
+   function escrever() {     
+        info = "Usuário número " + (++num) + "\n";      
+        info += "Nome: " + nome + "\n";      
+        info += "E-mail: " + email + "\n\n";   
+}
+5) Falta ainda imprimir os resultados no campo de textos. Alteramos a função escrever() para que receba, como argumento, 
+uma referência ao campo de textos (quadro), que será passado na chamada da função. Todo campo de textos <TEXTAREA> ou 
+<INPUT TYPE=TEXT> em JavaScript tem uma propriedade value, que dá acesso à sua área editável. A propriedade value é 
+uma variável que pode receber ou conter texto. Dentro da função, concatenamos o texto (em info) com o texto já existente 
+na caixa de texto (e visível na tela) em value:
+   function escrever(quadro) {
+        info = "Usuário número " + (++num) + "\n";      
+        info += "Nome: " + nome + "\n";      
+        info += "E-mail: " + email + "\n\n";      
+        quadro.value += info;   
+}     */
+            var num = 0;
+            function escrever(quadro) {     
+            info = "Usuário número " + (++num) + "\n";      
+            info += "Nome: " + nome + "\n";      
+            info += "E-mail: " + email + "\n\n";
+/* 7) Agora, ao se apertar o botão, a função escrever será chamada. Dentro dela, a variável quadro receberá o valor em 
+this.form.Area, como se tivesse ocorrido uma atribuição do tipo:  quadro = this.form.area     */            
+            quadro.value += info;
+            }
+/*4) O “+”, como vimos antes, concatena strings. O valor da variável num é incrementado com “++num”, que é equivalente à 
+expressão “num = num + 1”. A atribuição “+=” acrescenta o texto do lado direito à variável info, sem apagar o texto 
+existente. “\n” representa uma quebra de linha. São armazenadas em info quatro linhas de informação, sendo a última em 
+branco. */
+        </script> 
+    </head>
+    
+    <body bgcolor=yellow>  
+        <form>    
+            <h2 align=center>
+                Cadastro
+            </h2>    
+            <div align=center> 
+                     
+ <!-- 2) O próximo passo é programar o evento. A instrução prompt("texto da janela", "texto inicial do campo de entrada"), 
+é um método JavaScript que abre uma janela de diálogo contendo um campo de entrada de dados (como o da figura). O usuário
+pode digitar texto no campo disponível e este será devolvido como valor de retorno, caso o OK seja apertado. Para colocar 
+o valor na variável nome, podemos fazer:  nome = prompt("Digite o Nome", "").  Fazemos isto dentro do atributo ONCLICK 
+de cada botão, para os dois valores, para que o comando só seja executado quando o usuário apertar o botão:    -->                   
+                <p>
+                    <input type="button" value="Digitar Nome" onclick="nome=prompt('Seu Nome', '')">        
+                    <input type="button" value="Digitar E-mail" onclick="email=prompt('Email', '')">
+ <!-- 6) Uma referência para o campo de textos (<TEXTAREA>) pode ser obtido a partir do formulário no qual está contido, 
+ através de seu nome. Os nomes dos componentes de um formulário são propriedades do formulário. Dentro de qualquer 
+ componente, pode-se obter uma referência ao formulário em que está contido usando this.form. A expressão: this.form.Area 
+ portanto, representa o campo de textos chamado Area (<TEXTAREA NAME="Area">), localizado neste formulário. A chamada 
+ acima é válida dentro de qualquer componente do formulário, como o terceiro botão. Assim, podemos chamar a função 
+ escrever() de dentro do botão e passar como argumento o campo de textos, que é representado pelo objeto de nome Area 
+ localizado neste formulário:  <input type=button value="Cadastrar" onclick="escrever(this.form.area)"> ;       --> 
+                    <input type="button" value="Cadastrar" onclick="escrever(this.form.area)">      
+                </p>
+                <textarea rows=10 cols=40 name=area></textarea> 
+<!-- 8)O último requisito (c), pede para que a página exiba a data de hoje na página. A exibição não depende de eventos do
+usuário. Deve ser uma transformação realizada somente na carga e exibição da página, portanto, incluímos o código em um 
+segundo bloco <SCRIPT> no corpo da página. Utilizamos a instrução new Date() para obter a data de hoje e passamos para uma 
+variável hoje, que criamos. Não é preciso usar a palavra var para definir variáveis:  hoje = new Date(); // armazena a data 
+de hoje; A instrução “new” é um operador utilizado para criar novos objetos. Date() é uma função especial, chamada de 
+construtora, ela constroi o novo objeto e define métodos e propriedades que podem ser invocados a partir do objeto. hoje, 
+portanto, é um objeto que representa a data de hoje e tem métodos, definidos pela função construtora Date(). Uma data é um 
+tipo de dados abstrato que possui várias propriedades. Só precisamos de três: dia, mês e ano. A única forma de obtê-las em 
+JavaScript é invocando métodos sobre hoje. Os métodos  retornam propriedades específicas dos objetos onde são invocados. 
+Usamos o operador “.” para ter acesso a eles, assim como fizemos com as propriedades:
+<div align=center> 
+    <script>   
+        hoje = new Date()
+        dia = hoje.getDate()   
+        mes = hoje.getMonth() + 1   
+        ano = hoje.getYear() + 1900   
+        document.write("<h3>Hoje: " + dia + "/" + mes + "/" + ano + "</h3>") 
+    </script>      
+Tivemos que somar 1 ao valor retornado pelo método getMonth() porque ele retorna os meses contados a partir de 0 e terminando 
+em 11. Somamos 1900 ao valor retornado por getYear() porque o método retorna o número de anos desde 1900. A última instrução, 
+imprime os valores na página.-->                
+                <script>   
+                    hoje = new Date()   
+                    dia = hoje.getDate()   
+                    mes = hoje.getMonth() + 1   
+                    ano = hoje.getYear() + 1900   
+                    document.write("<h3>Hoje: " + dia + "/" + mes + "/" + ano + "</h3>")
+                </script> 
+            </div>  
+        </form> 
+    </body>     
+</html> 

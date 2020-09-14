@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="utf-8">
+		<title>Horóscopo previsões</title>
+
+		<script>
+			function insereTexto(elemento) { 
+				if(elemento.id == 'aries'){
+					document.getElementById('divAries').innerHTML = 'Você é do signo de aries!';
+				}
+				else if(elemento.id == 'touro'){
+					 document.getElementById('divTouro').innerHTML = 'Você é do signo de Touro!';
+				}
+				else if(elemento.id == 'gemeos'){
+					 document.getElementById('divGemeos').innerHTML = 'Você é do signo de Gemeos!';
+				}
+				else if(elemento.id == 'cancer'){
+					 document.getElementById('divCancer').innerHTML = 'Você é do signo de Câncer!';
+				}
+				else if(elemento.id == 'leao'){
+					 document.getElementById('divLeao').innerHTML = 'Você é do signo de Leão!';
+				}
+				else if(elemento.id == 'virgem'){
+					 document.getElementById('divVirgem').innerHTML = 'Você é do signo de Virgem!';
+				}
+				else if(elemento.id == 'libra'){
+					 document.getElementById('divLibra').innerHTML = 'Você é do signo de Libra!';
+				}
+				else if(elemento.id == 'escorpiao'){
+					 document.getElementById('divEscorpiao').innerHTML = 'Você é do signo de Escorpião!';
+				}
+				else if(elemento.id == 'sagitario'){
+					 document.getElementById('divSagitario').innerHTML = 'Você é do signo de Sagitário!';
+				}
+				else if(elemento.id == 'capricornio'){
+					 document.getElementById('divCapricornio').innerHTML = 'Você é do signo de Capricórnio!';
+				}
+				else if(elemento.id == 'aquario'){
+					 document.getElementById('divAquario').innerHTML = 'Você é do signo de Aquário!';
+				}
+				else{
+					document.getElementById('divPeixes').innerHTML = 'Você é do signo de Peixes!';
+				}
+            }
+	
+		</script>
+	</head>		
+
+	<body>
+		<center>
+			<img src="img/aries.jpg" id="aries" onclick="insereTexto(this)" width="60" height="55">
+			<div id="divAries"> </div>
+			
+			<img src="img/touro.jpg" id="touro" onclick="insereTexto(this)" width="60" height="55">
+			<div id="divTouro"> </div>
+
+			<img src="img/gemeos.jpg" id="gemeos" onclick="insereTexto(this)" width="60" height="55">
+			<div id="divGemeos"> </div>
+
+			<img src="img/cancer.jpg" id="cancer" onclick="insereTexto(this)" width="60" height="55">
+			<div id="divCancer"> </div>
+
+			<img src="img/leao.jpg" id="leao" onclick="insereTexto(this)" width="60" height="55">
+			<div id="divLeao"> </div>
+
+			<img src="img/virgem.jpg" id="virgem" onclick="insereTexto(this)" width="60" height="55">
+			<div id="divVirgem"> </div>
+					
+			<img src="img/libra.jpg" id="libra" onclick="insereTexto(this)" width="60" height="55">
+			<div id="divLibra"> </div>
+
+			<img src="img/escorpiao.jpg" id="escorpiao" onclick="insereTexto(this)" width="60" height="55">
+			<div id="divEscorpiao"> </div>
+
+			<img src="img/sagitario.jpg" id="sagitario" onclick="insereTexto(this)" width="60" height="55">
+			<div id="divSagitario"> </div>
+
+			<img src="img/capricornio.jpg" id="capricornio" onclick="insereTexto(this)" width="60" height="55">
+			<div id="divCapricornio"> </div>
+
+			<img src="img/aquario.jpg" id="aquario" onclick="insereTexto(this)" width="60" height="55">
+			<div id="divAquario"> </div>
+			
+			<img src="img/peixes.jpg" id="peixes" onclick="insereTexto(this)" width="60" height="55">
+			<div id="divPeixes"> </div>
+		</center>
+	</body>	
+</html>

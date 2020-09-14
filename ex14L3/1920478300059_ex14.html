@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html> 
+    <head>
+        <meta charset="utf-8">
+        <title>
+             Exercício 14: trocar figura passando o mouse.
+        </title> 
+
+        <script language="JavaScript"> 
+            function mouseEmCima(imagem) { 
+                imagem.src="img/corona.png"; //imagem formato .png
+            } 
+            function mouseFora(imagem) { 
+                imagem.src="img/pngoro.jpg"; 
+            } 
+        </script>
+    </head> 
+    
+    <body>
+
+        Passe o mouse sobre a imagem: <br> 
+        <img src="img/pngoro.jpg" onmouseover="mouseEmCima(this)" onmouseout="mouseFora(this)" width="300" height="300" > <br><br>
+<!--width="300" height="300" : dentro da tag img src onclick="mouseEmCima(this)"onMouseOver="mouseEmCima(this)" --> 
+        1) Agora padronize os tamanhos das imagens.<br>  
+        2) Mude o evento para que as imagens sejam trocadas ao "clicar" com o mouse. <br>
+        <img src="img/pngoro.jpg" onclick="mouseEmCima(this)" width="300" height="300">
+        
+    </body> 
+</html> 

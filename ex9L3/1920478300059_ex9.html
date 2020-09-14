@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">;
+        <title> 
+            Exercício 9: apresenta o quadrado de um número já informado internamente e, em seguida, 
+        em uma caixa de texto, permite que você informe um número para saber seu valor ao cubo.
+        </title> 
+ 
+        <script> 
+            function quadrado(x) { document.write(x*x); } 
+         
+            function cubo(x) { return x*x*x } 
+         
+            y=5; document.write(" O quadrado de "+ y +" é igual a  "); quadrado(y); 
+        </script> 
+         
+        <body> 
+            <form> <br>
+                Informe um número para saber seu valor ao cubo e, em seguida, pressione a tecla TAB ou dê 
+                um clique fora da caixa de texto.<br> 
+                <input type ="text" name="aocubo" value="" onBlur ="alert('O cubo de '+this.value+' é '+cubo(this.value))"> 
+            </form> 
+         
+        <!--O evento onblur ocorre quando um objeto perde o foco. Ex: você tem 2 campos de textos para digitar seus 
+        dados. O primeiro você deve digitar seu nome e no outro o seu email. Após digitar o seu nome você terá que 
+        digitar o email, certo? Se você tivesse colocado um evento onBlur no campo onde digitou o nome, ao clicar no 
+        campo de email uma ação seria disparada. --> 
+        </body> 
+
+</html>

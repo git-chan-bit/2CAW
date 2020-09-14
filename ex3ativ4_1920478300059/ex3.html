@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <title>calculadora - 2CAW</title>
+            <script>
+                function calculadora() {    
+                var n1 = parseFloat(document.getElementById('n1').value);    
+                var n2 = parseFloat(document.getElementById('n2').value);    
+                var resultado = 0;  
+                if (document.getElementsByName('operacao')[0].checked) {    
+                    resultado = n1 + n2;  
+                }    
+                if (document.getElementsByName('operacao')[1].checked) {    
+                    resultado = n1 - n2;    
+                }    
+                if (document.getElementsByName('operacao')[2].checked) {    
+                    resultado = n1 * n2;    
+                }    
+                if (document.getElementsByName('operacao')[3].checked) {    
+                    resultado = n1 / n2;    
+                }    
+                document.getElementById('resultado').value = resultado;    
+                } 
+            </script>
+    </head>
+    <body>
+        <p> Calculadora 4 operações - JavaScript: </p> 
+        <form action="#">  
+            <p>  
+                Número1: <input id="n1" type="text"><br>    
+                Número2: <input id="n2" type="text">  
+            </p>  
+            <p>  
+                <input type="radio" name="operacao" id="adicao" value="+" checked><label for="adicao">Adição</label><br>    
+                <input type="radio" name="operacao" id="subtracao" value="-"> <label for="subtracao">Subtração</label><br>  
+                <input type="radio" name="operacao" id="multiplicacao" value="*"> <label for="multiplicacao">Multiplicação</label><br>    
+                <input type="radio" name="operacao" id="divisao" value="/"> <label for="divisao">Divisão</label><br>   
+            </p>  
+            <p>  
+                Resultado: <input id="resultado" type="text">  
+            </p>  
+            <p>  
+                <input type="button" value="Calcular" onclick="calculadora()">  
+            </p>  
+        </form>
+    </body>
+</html>
