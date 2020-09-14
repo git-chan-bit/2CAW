@@ -1,0 +1,120 @@
+<html lang="pt"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Formulário</title>
+
+  <style rel="stylesheet">
+    body { background-color: #FFE4B5; } /*cor mocassin*/
+    /* Não se preocupem com estilização, não se preocupem com o que tem dentro da tag <style> */
+    
+    .corpo {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .titulo {
+      text-align: center;
+    }
+
+    .grupo-formulario {
+      margin: 16px;
+    }
+
+  </style>
+</head>
+
+<body class="corpo">
+  <h1 class="titulo">Formulário</h1>
+
+  <!-- onsubmit: evento que disparará a função "capturaDados(event)"  -->
+  <form class="formulario" onsubmit="capturaDados(event)">
+    <div class="grupo-formulario">
+
+      <!-- as propriedades "for" no label e a "id" no input estão intimamente ligadas: use o mesmo valor nelas -->
+      <label for="nome">Digite seu nome:</label>
+
+      <!-- é importante usar o tipo correto no input: se for texto -> type="text", se for número -> type="number", se for senha -> type="password", se for um telefone -> type="tel" etc -->
+      <!-- o atributo "minlength" serve para definir um tamanho mínimo para o que o usuário digitar -->
+      <input type="text" id="nome" minlength="3">
+    </div>
+
+    <div class="grupo-formulario">
+      <label for="idade">Digite sua idade:</label>
+      <!-- a propriedade "min" e "max" definem um valor mínimo e máximo para um campo input do type="text" -->
+      <input type="number" id="idade" min="0" max="100">
+    </div>
+    
+    <div class="grupo-formulario">
+      <label for="password">Digite sua senha:</label>
+      <input type="password" id="senha">
+    </div>
+
+    <button type="submit">Enviar dados</button>
+  </form>
+  <div id="resultado"></div>
+
+
+<script>
+
+  // document.querySelector(''): função que captura um elemento do HTML
+  const inputNome = document.querySelector('#nome');
+  const inputIdade = document.querySelector('#idade');
+  const inputSenha = document.querySelector('#senha');
+  const resultado = document.querySelector('#resultado');
+
+  // declarando funções globais pra que todas as funções tenham acesso
+  let nome;
+  let idade;
+  let senha;
+
+  // função que será disparada quando o formulário for submetido
+  // todas as funções que são disparadas por um evento recebem de "presente" o objeto "event"
+  function capturaDados(event) {
+    // event.preventDefault(): previne o comportamento padrão do navegador que é recarregar quando um formulário é enviado
+    event.preventDefault();
+
+    // .value: propriedade que quase todo elemento HTML possui
+    nome = inputNome.value;
+    idade = inputIdade.value;
+    senha = inputSenha.value;
+
+    const min = 5;
+    const ehValida  = validaSenha(senha, min);
+
+    mostraResultado(ehValida, min);
+  }
+
+  function validaSenha(senha, min) {
+
+    // .length: propriedade que armazena o tamanho de uma string, de um array etc
+    const tamanho = senha.length;
+    if(tamanho < min) {
+      return 0;
+
+    } else {
+      return 1;
+    }
+  }
+
+  function mostraResultado(valor, min) {
+
+    let texto;
+
+    if(valor == 0) {
+      // para se poder usar "${}" e botar variáveis dentro de uma string é necessário declará-la dentro de `` (crase)
+      texto = `<p>A senha precisa ter no mínimo ${min} caracteres.<p>`; 
+
+    } else {
+      texto = `<p>Seja bem vindo ${nome}! ${idade} anos é uma ótima idade pra acessar nosso site!<p>`;
+    }
+
+    // .innerHTML propriedade que possibilita a inserção de texto dentro de uma tag HTML através do JavaScript
+    resultado.innerHTML = texto;
+  }
+  
+</script>
+
+</body></html>
